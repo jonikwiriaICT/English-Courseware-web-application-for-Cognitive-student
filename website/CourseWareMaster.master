@@ -1,0 +1,148 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="CourseWareMaster.master.cs" Inherits="CourseWareMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Udema a modern educational site template">
+    <meta name="author" content="Ansonika">
+    <title>Courseware Learning for Cognitive Students </title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
+    <!-- BASE CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<link href="css/vendors.css" rel="stylesheet">
+	<link href="css/icon_fonts/css/all_icons.min.css" rel="stylesheet">
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+   
+    <asp:ContentPlaceHolder id="head" runat="server">
+       
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat ="server" >
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+	
+	<header class="header fadeInDown">
+		<div id="logo">
+			<a href="#"><img src="" width="149" height="42" data-retina="true" alt=""></a>
+		</div>
+		<ul id="top_menu">
+			
+			<li class="hidden_tablet"><a href="#0">
+                <asp:Label ID="lblUsername" runat="server" Text=""></asp:Label>
+			                          </a></li>
+			<li class="hidden_tablet">
+                <asp:LinkButton ID="lnkSignOut" OnClick ="SignOut" CssClass ="btn_1 rounded" runat="server">Sign Out</asp:LinkButton>
+             
+			<li>
+				<div class="hamburger hamburger--spin">
+					<div class="hamburger-box">
+						<div class="hamburger-inner"></div>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!-- /top_menu -->
+	</header>
+	<!-- /header -->
+	
+
+	<!-- /main_menu -->
+	
+	<main>
+		<section id="hero_in" class="general">
+			<div class="wrapper">
+				<div class="container">
+					<h1 class="fadeInUp"><span></span>ENGLISH LANGUAGE COURSE WARE</h1>
+				</div>
+			</div>
+		</section>
+		<!--/hero_in-->
+		<div class="container margin_60_35">
+			<div class="row">
+				<aside class="col-lg-3" id="sidebar">
+					<div class="profile">
+						
+						<ul>
+                            <li><h4>English</h4> TOPICS</li>
+                            <asp:ListView ID="ListCourse" runat="server" >
+
+                                <ItemTemplate>
+                                    <li><a href="<%# "Student-dashboard?ID=" + Eval("RecID")%>">
+                                        <%#Eval("TopicTitle")%>
+                                    </a>
+                                        <span class="float-right"></span></li>
+                                </ItemTemplate>
+                            </asp:ListView>
+
+
+
+                        </ul>
+					</div>
+				</aside>
+                   <div class="col-lg-9">
+                       <asp:Panel ID="pnlAlert" runat="server" CssClass="alert alert-danger" Visible="false">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <span id="spIcon" runat="server"></span>
+        <asp:Label ID="lblMsg" CssClass="text-white " runat="server" Text=""></asp:Label>
+    </asp:Panel>
+     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+                       </div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</main>
+	<footer>
+		<div class="container margin_120_95">
+			<hr>
+			<div class="row">
+				<div class="col-md-8">
+					<ul id="additional_links">
+						<li><a href="#0">Terms and conditions</a></li>
+						<li><a href="#0">Privacy</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<div id="copy">© 2021 Scholastica</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--/footer-->
+	
+	<!-- Search Menu -->
+	
+	
+	<!-- COMMON SCRIPTS -->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/common_scripts.js"></script>
+    <script src="js/main.js"></script>
+	<script src="assets/validate.js"></script>
+
+
+
+
+    </form>
+    	
+
+</body>
+</html>
